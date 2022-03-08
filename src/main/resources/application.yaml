@@ -1,0 +1,24 @@
+server:
+  port: 9000
+management:
+  server:
+    port: 9001
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: helloworld
+  profile:
+    active: sit
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    bus:
+      enabled: true
+    refresh:
+      enabled: true
+  kafka:
+    bootstrap-servers: http://localhost:9093
