@@ -5,6 +5,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope
 import org.springframework.context.ApplicationContext
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.annotation.PostConstruct
 
 @RestController
 @RefreshScope
@@ -22,5 +23,10 @@ class Controller(val applicationContext: ApplicationContext) {
     fun dummyAPI(): Map<String, String> {
         println("*********************${applicationContext.getBean(Controller::class.java)}")
         return mapOf(Pair("toggle1", toggle1), Pair("toggle3", toggle3), Pair("commonToggle", commonToggle))
+    }
+
+    @PostConstruct
+    fun postConstruct() {
+        println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&& calling post construct")
     }
 }
