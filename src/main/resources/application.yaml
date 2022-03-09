@@ -11,7 +11,7 @@ management:
 spring:
   application:
     name: helloworld
-  profile:
+  profiles:
     active: sit
   config:
     import: optional:configserver:http://localhost:8888/
