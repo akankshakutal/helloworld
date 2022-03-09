@@ -17,6 +17,7 @@ spring:
     import: optional:configserver:http://localhost:8888/
   cloud:
     bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${server.port}
       enabled: true
     refresh:
       enabled: true
